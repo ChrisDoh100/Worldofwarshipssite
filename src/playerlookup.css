@@ -1,0 +1,16 @@
+.header{
+    padding: 60px;
+    display: grid;
+    text-align: center;
+    font-size: large;
+}
+.header form{
+    float: center;
+}
+.data{
+    display: inline-block;
+
+}
+.total{
+    background-image: url(Georgia.jpg);
+}

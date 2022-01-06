@@ -1,10 +1,15 @@
-import react from "react"
+import react, { useState } from "react"
+import Playerlookup from "./playerlookup"
+
 
 
 const App = ()=>{
     
+    
     return(
-    <div className="container">hello world of warships players!</div>
+    <div >
+    <Playerlookup/>
+    </div>
     )}
 
 export default App

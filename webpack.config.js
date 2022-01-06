@@ -1,4 +1,5 @@
 const path = require('path')
+require('dotenv').config()
 
 const config = {
     entry:['@babel/polyfill','./src/index.js'],
@@ -25,7 +26,7 @@ const config = {
                 test:/\.css$/,
                 use:['style-loader','css-loader'],
             }
-        ]
+        ],
     }
 }
 
