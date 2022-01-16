@@ -1,9 +1,10 @@
 import react, { useState } from "react"
 import axios from "axios"
+import Header from './components/header'
 import './playerlookup.css'
 
 const Playerlookup = ()=>{
-    const [data,setData]=useState([])
+    const [data,setData]=useState(null)
 
     const handleSubmit=async(event)=>{
         event.preventDefault()
@@ -20,14 +21,12 @@ const Playerlookup = ()=>{
     }
     return(
         <div className="header" type='text/css'>
-            <h1>TDC World of Warships Stats</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="name"/>
-                <button type="submit">Submit!</button>
+            <form className="form" onSubmit={handleSubmit}>
+                <h1 className="title">World of </h1>
+                <h1 className="title">Warships</h1>
+                <h1 className="title">Stats</h1>
+                <input className = "name" type="text" name="name" placeholder="Player Id..."/>
             </form>
-            <div className="data">
-                {Object.keys(data).map(dat=><li>{dat}</li>)}
-            </div>
         </div>
     )
 }

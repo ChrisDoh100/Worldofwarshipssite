@@ -1,5 +1,6 @@
-import react, { useState } from "react"
-import Playerlookup from "./playerlookup"
+import Playerlookup from './playerlookup'
+import Header from './components/header'
+import Router from 'react-router-dom';
 
 
 
@@ -7,8 +8,9 @@ const App = ()=>{
     
     
     return(
-    <div >
-    <Playerlookup/>
+    <div>
+        <Header/>
+        <Playerlookup/>
     </div>
     )}
 
