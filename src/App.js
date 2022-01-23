@@ -1,6 +1,7 @@
 import Playerlookup from './playerlookup'
+import DataDisplay from './components/data';
 import Header from './components/header'
-import Router from 'react-router-dom';
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 
 
 
@@ -9,8 +10,14 @@ const App = ()=>{
     
     return(
     <div>
-        <Header/>
-        <Playerlookup/>
+        <Router>
+            <Header/>
+            <Routes>
+                <Route path="/data/:name" element={<DataDisplay/>}/>
+                <Route path="/" element={<Playerlookup/>}/>
+            </Routes>
+
+        </Router>
     </div>
     )}
 

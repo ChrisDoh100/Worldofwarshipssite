@@ -2,9 +2,11 @@ import react, { useState } from "react"
 import axios from "axios"
 import Header from './components/header'
 import './playerlookup.css'
+import { useNavigate }from "react-router-dom";
 
 const Playerlookup = ()=>{
-    const [data,setData]=useState(null)
+    let history = useNavigate();
+    let data = {};
 
     const handleSubmit=async(event)=>{
         event.preventDefault()
@@ -14,10 +16,11 @@ const Playerlookup = ()=>{
 
         console.log(account_id)
         if(account_id){
-            const data =await axios.get(`https://api.worldofwarships.eu/wows/account/info/?application_id=8f8a6cff45216e56c20a911b91be9186&account_id=${account_id}`)
-                        .then(res=>setData(res.data.data[account_id].statistics.pvp))
+            data =await axios.get(`https://api.worldofwarships.eu/wows/account/info/?application_id=8f8a6cff45216e56c20a911b91be9186&account_id=${account_id}`)
+                        .then(res=>res.data.data[account_id])
                         .catch(err=>console.error(err))
         }
+        history(`/data/${event.target.name.value}`,{state:{data}})
     }
     return(
         <div className="header" type='text/css'>

@@ -1,6 +1,6 @@
 import react from 'react';
 import './header.css'
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav,NavLink} from 'react-bootstrap';
 
 
 
@@ -12,9 +12,8 @@ const Header = ()=>{
         <Navbar  expand='lg' bg="dark" variant="dark">
             <Navbar.Brand className="ml-auto" href="/">WoWStats</Navbar.Brand>
             <Nav className="me-auto">
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/">Contact</Nav.Link>
-                <Nav.Link href="#pricing">About</Nav.Link>
+                <Nav.Link  href ="/">Home</Nav.Link>
+                <Nav.Link  href ="/data">Contact</Nav.Link>
             </Nav>
         </Navbar>
     )
