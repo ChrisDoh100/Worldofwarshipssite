@@ -1,0 +1,21 @@
+Data to be extracted from api into new data structure(map)
+
+Number of battles played.
+Number of wins
+Number of defeats.
+Games by tier.
+Games by ship type.
+Total ships spotted.
+Total Damage dealt
+damage dealt by aircraft
+Damage dealt by main battery
+Damage dealt by secondaries
+
+
+//data to calculate
+->Total time spent playing world of warships
+->Total winrate
+->Winrate by tier(if possible)
+->Winrate by ship(if possible)
+->% damage dealt by secondaries,main battery and aircraft etc
+
