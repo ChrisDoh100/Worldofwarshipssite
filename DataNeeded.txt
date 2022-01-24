@@ -17,5 +17,7 @@ Damage dealt by secondaries
 ->Total winrate
 ->Winrate by tier(if possible)
 ->Winrate by ship(if possible)
-->% damage dealt by secondaries,main battery and aircraft etc
+->% damage dealt by secondaries,main battery and airc
+
+
 
