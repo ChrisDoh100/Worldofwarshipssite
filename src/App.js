@@ -13,7 +13,7 @@ const App = ()=>{
         <Router>
             <Header/>
             <Routes>
-                <Route path="/data/:name" element={<DataDisplay/>}/>
+                <Route path='/data/:name' element={<DataDisplay/>}/>
                 <Route path="/" element={<Playerlookup/>}/>
             </Routes>
 
