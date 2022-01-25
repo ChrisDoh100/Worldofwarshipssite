@@ -11,7 +11,6 @@ const DataDisplay=()=>{
     let output = data;
     const entries = output.data.statistics
     let whateverthefuckthisis=DataFilter(entries)
-    console.log(whateverthefuckthisis)
     //do some more work on what kind of data actually want to display
     // then think of how to output that data.
     return(

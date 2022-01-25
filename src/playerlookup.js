@@ -15,7 +15,11 @@ const Playerlookup = ()=>{
                                         .then(res=>res.data.data)
                                         .catch(err=>console.error(err))
 
-        console.log(account_id)
+        if(typeof account_id==="undefined"){
+            console.log("fuck off")
+        }else{
+            console.log(account_id)
+        }
         /*if(account_id){
             data =await axios.get(`https://api.worldofwarships.eu/wows/account/info/?application_id=8f8a6cff45216e56c20a911b91be9186&account_id=${account_id}`)
                         .then(res=>res.data.data[account_id])
@@ -24,13 +28,17 @@ const Playerlookup = ()=>{
         history(`/data/${event.target.name.value}`,{state:{data}})*/
     }
     return(
-        <div className="header" type='text/css'>
-            <form className="form" onChange={handleSubmit}>
-                <h1 className="title">World of </h1>
-                <h1 className="title">Warships</h1>
-                <h1 className="title">Stats</h1>
-                <input className = "name" type="text" name="name" placeholder="Player Id..."/>
-            </form>
+        <div className="background" type ='text/css'>
+            <div className="blur" type='text/css'>
+                <div className="header" type='text/css'>
+                    <form className="form" autoComplete="off" onChange={handleSubmit}>
+                        <h1 className="title">World of </h1>
+                        <h1 className="title">Warships</h1>
+                        <h1 className="title">Stats</h1>
+                        <input className = "name" type="text" name="name" placeholder="Player Id..."/>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
