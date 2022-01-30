@@ -1,8 +1,10 @@
 import React from "react";
-import axios from "axios";
+import Header from "./header";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import './autocomplete.css'
+import {getPlayerNames,getPlayerData} from "../services/submission";
+import { Alert } from "bootstrap";
 
 
 
@@ -16,21 +18,17 @@ const Autocomplete=()=>{
 
 
     const handleSubmit=async(username)=>{
-        let data =await axios.get(`https://api.worldofwarships.eu/wows/account/info/?application_id=8f8a6cff45216e56c20a911b91be9186&account_id=${username['account_id']}`)
+        let data =await getPlayerData(username['account_id'])
                         .then(res=>res.data.data[username['account_id']].statistics)
-                        .catch(err=>console.error(err))
+                        .catch(err=>Alert("Apologies, Please Try Again Later!"))
         let name = String(username['nickname']);
-        console.log(name)
-        history(`/data/${name}`,{state:{data}})
+        history(`/data/${name}`,{state:{data,name}})
     }
     const handleEvent=async(event)=>{
         event.preventDefault()
-        console.log(event.target.value)
-        let usernames=[]
-        let account_id = await axios.get(`https://api.worldofwarships.eu/wows/account/list/?application_id=8f8a6cff45216e56c20a911b91be9186&search=${event.target.value}`)
+        let account_id =await getPlayerNames(event.target.value)
                                         .then(res=>res.data.data)
-                                        .catch(err=>console.error(err))
-
+                                        .catch(err=>Alert("Apologies, Please Try Again Later!"))
         if(typeof account_id==="undefined"){
             setTimeout(()=>{
                 setSuggestions([])
@@ -41,12 +39,15 @@ const Autocomplete=()=>{
     }
     return(
         <>
-            <h1 className="title">World of Warships Stats</h1>
-            <div className="autocomplete">
-                <input type='text/css' placeholder="Username...." onChange={(event)=>handleEvent(event)} ></input>
-                <ul>
-                    {suggestions && suggestions.map((item,i)=><li key={i} onClick={()=>handleSubmit(item)}>{item['nickname']}</li>)}
-                </ul>
+            <Header/>
+            <div className="containerauto">
+                <h1 className="title">World of Warships Stats</h1>
+                <div className="autocomplete">
+                    <input type='text/css' placeholder="Username...." onChange={(event)=>handleEvent(event)} ></input>
+                    <ul>
+                        {suggestions && suggestions.map((item,i)=><li key={i} onClick={()=>handleSubmit(item)}>{item['nickname']}</li>)}
+                    </ul>
+                </div>
             </div>
         </>
     )

@@ -1,4 +1,4 @@
-body{
+.containerauto{
     background-image: url('../Georgia.jpg');
     backdrop-filter: blur(8px); 
     height:100vh;

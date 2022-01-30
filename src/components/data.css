@@ -1,0 +1,76 @@
+
+.containers{
+    position:relative;
+    background-image: url("../intro_screen.jpg");
+    top:0;
+    left:0;
+}
+div.nameanimation{
+    height: 160px;
+    background-color: rgba(25, 25, 25, 0.466);
+    /*box-shadow: 0 0 10px 15px rgb(25,25,25);*/
+    
+}
+
+h1.name{
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: 2px 5px 5px black;
+    line-height: 160px;
+    font-size: 6.5em;
+    font-weight:900;
+    letter-spacing: .15em;
+    margin: 0 auto;
+    border-right: .15em solid white;
+    animation: 
+    typing 6s steps(90, end),
+    blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+    from { width: 0% }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
+
+
+  .box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 2em;
+    height: 100vh;
+  }
+ .upperleft{
+      margin:25px 25px 25px 25px;
+      padding: 5px 5px 5px 5px;
+      box-shadow: 2px 15px 15px black;
+      background-color: rgba(25, 25, 25, 0.5);
+      border-radius: 50px;
+  }
+  .upperright{
+    margin:25px 25px 25px 25px;
+    padding: 5px 5px 5px 5px;
+    box-shadow: 2px 15px 15px black;
+    background-color: rgba(25, 25, 25, 0.5);
+    border-radius: 50px;
+  }
+  .bottomleft{
+    margin:25px 25px 25px 25px;
+    padding: 5px 5px 5px 5px;
+    box-shadow: 2px 15px 15px black;
+    background-color: rgba(25, 25, 25, 0.5);
+    border-radius: 50px;
+  }
+  .bottomright{
+    margin:25px 25px 25px 25px;
+    padding: 5px 5px 5px 5px;
+    box-shadow: 20px 15px 15px black;
+    background-color: rgba(25, 25, 25, 0.5);
+    border-radius: 50px;
+  }

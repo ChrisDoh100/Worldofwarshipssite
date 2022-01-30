@@ -9,16 +9,13 @@ const App = ()=>{
     
     
     return(
-    <div>
         <Router>
-            <Header/>
             <Routes>
-                <Route path='/data/:name' element={<DataDisplay/>}/>
+                <Route path='/data/:name' element={<DataDisplay />}/>
                 <Route path="/" element={<Autocomplete/>}/>
             </Routes>
 
         </Router>
-    </div>
     )}
 
 export default App
