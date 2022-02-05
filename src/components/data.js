@@ -20,18 +20,26 @@ const DataDisplay=()=>{
     console.log(whateverthefuckthisis)
     
     return(
-        <div className="containers">
-            <Header/>
+        <>
+        <Header/>
             <div className="nameanimation">
                 <h1 className="name">{name}</h1>
             </div>
-            <div className="box">
-                <div className="upperleft"></div>
-                <div className="upperright"></div>
-                <div className="bottomleft"></div>
-                <div className="bottomright"></div>
+            <div className="main">
+                <div className="leftmenu">
+                    <h2 className="leftmenuheader">Data</h2>
+                    {Object.keys(whateverthefuckthisis).map(value=><p key={value}>{value}</p>)}
+                </div>
+                <div className="playerdata">
+                    <h1 className="titlecontent">Here is the title of the Statistic</h1>
+                    <p className="pcontent">here we begin to discribe the data and the story thhcjakdhaskjhdjashdjkhasjkdhaskjhdkahdkhaskdhe describes the actual statistics.</p>
+                </div>
+                <div className="rightmostcontent">
+                    some random shit
+
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

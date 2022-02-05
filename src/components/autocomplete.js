@@ -38,18 +38,16 @@ const Autocomplete=()=>{
         }
     }
     return(
-        <>
+        <div className="containerauto">
             <Header/>
-            <div className="containerauto">
-                <h1 className="title">World of Warships Stats</h1>
-                <div className="autocomplete">
-                    <input type='text/css' placeholder="Username...." onChange={(event)=>handleEvent(event)} ></input>
-                    <ul>
-                        {suggestions && suggestions.map((item,i)=><li key={i} onClick={()=>handleSubmit(item)}>{item['nickname']}</li>)}
-                    </ul>
-                </div>
+            <h1 className="title">World of Warships Stats</h1>
+            <div className="autocomplete">
+                <input type='text/css' placeholder="Username...." onChange={(event)=>handleEvent(event)} ></input>
+                <ul>
+                    {suggestions && suggestions.map((item,i)=><li key={i} onClick={()=>handleSubmit(item)}>{item['nickname']}</li>)}
+                </ul>
             </div>
-        </>
+        </div>
     )
         
 }
