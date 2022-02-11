@@ -21,7 +21,12 @@ const DataDisplay=()=>{
     let whateverthefuckthisis=DataFilter(entries)
     //console.log(whateverthefuckthisis)
     window.addEventListener("scroll",()=>{
-        setTruePadding(218-window.scrollY);
+        if((220-window.scrollY)<0){
+            setTruePadding(0);
+        }else{
+            setTruePadding(220-window.scrollY);
+        }
+        console.log(truepadding);
     });
     
     return(
