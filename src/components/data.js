@@ -1,16 +1,25 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { DataFilter } from "../datafilter/helperfunctions";
 import './data.css'
 import Header from "./header";
 
-
-
-const DataDisplay=()=>{
+const baseUrl = "http://localhost:3001/"
+const DataDisplay= ()=>{
     const  {state}  = useLocation();
     const [truepadding,setTruePadding] = useState(220);
+    const [story,setStory] = useState(" ");
+    const onSubmit = async()=>{
+        const storyfetch = await axios.get(`${baseUrl}${name}`)
+                        .then(res=>res.data[0])
+                        .catch(error=>console.log(error))
+        setStory(storyfetch.distance)
+    }
     //console.log("state",{state})
+    //onclick 
+    //setStory(storyfetch)
     let data = {}
     data=state;
     let name = state.name;
@@ -45,7 +54,7 @@ const DataDisplay=()=>{
             </div>
             <div className="playerdata">
                 <h1 className="titlecontent">Here is the title of the Statistic</h1>
-                <p className="pcontent">{Object.keys(whateverthefuckthisis).map(value=><p key={value}>{value}</p>)}</p>
+                <p className="pcontent"><button onClick={onSubmit}>Show Interesting Story</button>{story}</p>
             </div>
         </>
     )

@@ -7,8 +7,6 @@ import {getPlayerNames,getPlayerData} from "../services/submission";
 import { Alert } from "bootstrap";
 
 
-
-
 const Autocomplete=()=>{
 
     let history = useNavigate();
