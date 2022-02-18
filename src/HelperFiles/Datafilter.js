@@ -1,8 +1,5 @@
 
 
-
-
-
 export function DataFilter(Jsonfile){
     let outputobject = {};
     outputobject['distance']=Jsonfile['distance']
@@ -28,4 +25,5 @@ export function DataFilter(Jsonfile){
     return outputobject
 
 }
+//create another function that renames the variables;
 

@@ -1,34 +1,29 @@
 import axios from "axios";
 import React, { useEffect } from "react";
+import { getStory } from "../HelperFiles/getStory";
+import { setStory } from "../reducers/storyReducer";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { DataFilter } from "../datafilter/helperfunctions";
+import { DataFilter } from "../HelperFiles/Datafilter";
 import './data.css'
 import Header from "./header";
 
-const baseUrl = "http://localhost:3001/"
 const DataDisplay= ()=>{
+    const dispatch = useDispatch()
+    const story = useSelector(state=>state);
+
+    useEffect(async ()=>{
+        const stories = await getStory();
+        dispatch(setStory(stories))
+    },[dispatch])
+    const cleanstory=story[1];
     const  {state}  = useLocation();
     const [truepadding,setTruePadding] = useState(220);
-    const [story,setStory] = useState(" ");
-    const onSubmit = async()=>{
-        const storyfetch = await axios.get(`${baseUrl}${name}`)
-                        .then(res=>res.data[0])
-                        .catch(error=>console.log(error))
-        setStory(storyfetch.distance)
-    }
-    //console.log("state",{state})
-    //onclick 
-    //setStory(storyfetch)
     let data = {}
     data=state;
     let name = state.name;
-    //console.log(name);
-    let output = data;
-    //console.log(output)
-    const entries = output.data
-    let whateverthefuckthisis=DataFilter(entries)
-    //console.log(whateverthefuckthisis)
+    let whateverthefuckthisis=DataFilter(data.data)
     window.addEventListener("scroll",()=>{
         if((220-window.scrollY)<0){
             setTruePadding(0);
@@ -37,7 +32,6 @@ const DataDisplay= ()=>{
         }
         console.log(truepadding);
     });
-    
     return(
         <>
         <Header/>
@@ -54,7 +48,7 @@ const DataDisplay= ()=>{
             </div>
             <div className="playerdata">
                 <h1 className="titlecontent">Here is the title of the Statistic</h1>
-                <p className="pcontent"><button onClick={onSubmit}>Show Interesting Story</button>{story}</p>
+                <p className="pcontent">{cleanstory}</p>
             </div>
         </>
     )

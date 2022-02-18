@@ -8,7 +8,6 @@ import { Alert } from "bootstrap";
 
 
 const Autocomplete=()=>{
-
     let history = useNavigate();
     const [suggestions,setSuggestions]=useState([])
 
