@@ -5,7 +5,7 @@ import { setStory } from "../reducers/storyReducer";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { DataFilter } from "../HelperFiles/Datafilter";
+import { DataFilter, DataAligner } from "../HelperFiles/Datafilter";
 import './data.css'
 import Header from "./header";
 
@@ -24,7 +24,8 @@ const DataDisplay= ()=>{
     let data = {}
     data=state;
     let name = state.name;
-    let whateverthefuckthisis=DataFilter(data.data)
+    let whateverthefuckthisis=DataAligner(DataFilter(data.data))
+    console.log({whateverthefuckthisis})
     window.addEventListener("scroll",()=>{
         if((220-window.scrollY)<0){
             setTruePadding(0);
