@@ -58,3 +58,10 @@
 .autocomplete ul::before{
     content:"";
 }
+.toptip{
+    padding: 30px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}

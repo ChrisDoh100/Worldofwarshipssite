@@ -22,7 +22,6 @@ export function DataFilter(Jsonfile){
         }
 
     }
-    console.log(outputobject);
     return outputobject
 
 }
@@ -69,7 +68,6 @@ export function DataAligner(oobject){
         for(var i=0;i<removals.length;i++){
             if(removals[i]===key){
                 delete oobject[key];
-                console.log(key)
             }
         }
     }

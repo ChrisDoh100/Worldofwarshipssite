@@ -44,6 +44,7 @@ const Autocomplete=()=>{
                     {suggestions && suggestions.map((item,i)=><li key={i} onClick={()=>handleSubmit(item)}>{item['nickname']}</li>)}
                 </ul>
             </div>
+            <p className="toptip"> Top Tip: try not to let your ships HP hit zero, otherwise you'll die!</p>
         </div>
     )
         

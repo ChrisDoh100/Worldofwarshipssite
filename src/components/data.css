@@ -1,5 +1,8 @@
 
 div.nameanimation{
+    background-image: url('../wowbanner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     height: 160px;
     background-color: rgba(25, 25, 25, 0.466);
@@ -16,7 +19,7 @@ h1.name{
     color: #fff;
     text-align: center;
     vertical-align: middle;
-    text-shadow: 2px 5px 5px black;
+    text-shadow: 2px 5px 15px black;
     z-index: 3;
     line-height: 160px;
     font-size: 6.5em;
@@ -47,6 +50,9 @@ h1.name{
     width:inherit;
     text-align: center;
     overflow-x: wrap;
+  }
+  h2{
+    text-align: center;
   }
   .leftmenu{
     position: relative;
@@ -102,10 +108,10 @@ h1.name{
 
   p{
     text-align: center;
-    color: #000;
+    color: rgb(54, 54, 54);
     font-size: large;
   }
-  p:hover{
+  .left:hover{
     cursor: pointer;
     /*background-color: rgb(170, 169, 169);*/
   }
