@@ -1,6 +1,6 @@
 
 //constant api format so we can make the datafiltering somewhat more "unusually shaped";
-//could use depth first search to the data but who has the time to do that honestly, theres an invasion going on and everything.
+//could use depth first search for the data but who has the time to do that honestly, theres an invasion going on and everything.
 export function DataFilter(Jsonfile){
     let outputobject = {};
     outputobject['distance']=Jsonfile['distance']
@@ -26,6 +26,7 @@ export function DataFilter(Jsonfile){
 
 }
 //create another function that creates a modified version of the stats that are named properly.
+//and thus are much easier to be displayed when passed to the actual function thats going to render them.
 export function DataAligner(oobject){
     const removals = ["art_agro","team_dropped_capture_points","torpedo_agro","torpedoes max_frags_ship_id","team_capture_points","suppressions_count","second_battery max_frags_ship_id","ramming max_frags_ship_id","max_xp_ship_id","max_total_agro_ship_id","max_total_agro","max_suppressions_count","max_ships_spotted_ship_id","max_scouting_damage_ship_id","max_planes_killed_ship_id","max_frags_ship_id","max_damage_scouting","battles_since_510","battles_since_512","capture_points","damage_to_buildings","dropped_capture_points","main_battery max_frags_ship_id","max_damage_dealt_ship_id","max_damage_dealt_to_buildings"]
     const checkerobject = {"aircraft frags": "Aircraft Kills",

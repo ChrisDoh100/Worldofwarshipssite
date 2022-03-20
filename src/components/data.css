@@ -47,9 +47,16 @@ h1.name{
     width:inherit;
   }
   .titlecontent{
+    text-align: center;
     width:inherit;
+    border-radius: 100px;
     text-align: center;
     overflow-x: wrap;
+    overflow: hidden;
+    font-weight:500;
+  }
+  h3{
+    text-align: center;
   }
   h2{
     text-align: center;
@@ -61,7 +68,7 @@ h1.name{
     left:0;
     z-index: 1;
     width:15%;
-    background-color: #E7E9EB;
+    background-color: white;
     overflow-x: hidden;
     box-sizing: inherit;
   }
@@ -88,11 +95,17 @@ h1.name{
     overflow: auto;
     box-shadow: inset 0 10px 10px -10px rgba(25, 25, 25, 0.6) ;
     height: 100%;
-    background-color: #E7E9EB;
+    
+    background: linear-gradient(#0f89ec, #61a4f0);
+
+    background-color: white;
     overflow-y: scroll;
     overflow-x: hidden;
   }
   .playerdata{
+    background-image: url('../worldofwarshipsbackgroundimage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     margin-left: 15%;
     box-shadow: inset 0 10px 10px -10px rgba(25, 25, 25, 0.6) ;
     box-sizing: inherit;
@@ -111,7 +124,22 @@ h1.name{
     color: rgb(54, 54, 54);
     font-size: large;
   }
+  .storytitle{
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size: xx-large;
+    text-decoration: underline;
+  }
+  .pcontent{
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size:1.5rem;
+  }
   .left:hover{
     cursor: pointer;
-    /*background-color: rgb(170, 169, 169);*/
+  }
+  .left:focus{
+    background-color: #fff;
+    border-radius: 3em;
   }

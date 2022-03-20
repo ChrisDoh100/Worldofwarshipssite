@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect } from "react";
 import { getStory } from "../HelperFiles/getStory";
 import { setStory } from "../reducers/storyReducer";
@@ -10,37 +9,42 @@ import './data.css'
 import Header from "./header";
 
 const DataDisplay= ()=>{
+    //creating states for all relevent data to display.
     const dispatch = useDispatch()
-    const story = useSelector(state=>state);
     const [title,setTitle]=useState(" ");
-    const [titlevalue,setTitlevalue] = useState(null);
+    const [titlevalue,setTitlevalue] = useState("Pick A Stat!");
     const [storytitle,setStorytitle] = useState(" ");
     const [storycontent,setStorycontent] = useState(" ");
     const [truepadding,setTruePadding] = useState(220);
     useEffect(async ()=>{
-        const stories = await getStory();
-        console.log(stories)
-        dispatch(setStory(stories.stories))
-        setStorytitle(stories.title);
-        setStorycontent(stories.stories);
+        //Pulling story from database on page load and setting the title and content
+        try {
+            const stories = await getStory();
+            dispatch(setStory(stories.stories))
+            setStorytitle(stories.title);
+            setStorycontent(stories.stories);
+        } catch (error) {
+            console.log("Problem with Database pull")
+            console.error(error);
+        }
     },[dispatch])
+    //Getting state from userdata pushed from the initial api calls.
     const  {state}  = useLocation();
-    let data = {}
-    data=state;
+    let data = state;
     let name = state.name;
-    let whateverthefuckthisis=DataAligner(DataFilter(data.data))
+    let FilteredData=DataAligner(DataFilter(data.data))
+    //functionality of the scroll bar when the entire site is being scrolled.
     window.addEventListener("scroll",()=>{
         if((220-window.scrollY)<0){
             setTruePadding(0);
         }else{
             setTruePadding(220-window.scrollY);
         }
-        console.log(truepadding);
     });
+    //click functionality that changes data displayed.
     const Clicked=(somevalue)=>{
-        console.log({somevalue})
-        setTitle(somevalue);
-        setTitlevalue(whateverthefuckthisis[somevalue])
+        setTitle(somevalue+":");
+        setTitlevalue(FilteredData[somevalue])
     }
     return(
         <>
@@ -52,13 +56,13 @@ const DataDisplay= ()=>{
                 <div id="leftmenuinner" className="leftmenuinner" style={{"paddingTop":truepadding+"px"}}>
                     <div className="leftmenuinnerinner">
                         <h2>Statistics:</h2>
-                        {Object.keys(whateverthefuckthisis).map(value=><p className="left" onClick={()=>Clicked(value)} key={value} >{value}</p>)}
+                        {Object.keys(FilteredData).map(value=><p className="left" tabIndex={"1"} onClick={()=>Clicked(value)} key={value} >{value}</p>)}
                     </div>
                 </div>
             </div>
             <div className="playerdata">
                 <h1 className="titlecontent">{title}&nbsp;&nbsp;{titlevalue}</h1>
-                <h2 className="storytitle">{storytitle}</h2>
+                <h3 className="storytitle">{storytitle}</h3>
                 <p className="pcontent">{storycontent}</p>
             </div>
         </>

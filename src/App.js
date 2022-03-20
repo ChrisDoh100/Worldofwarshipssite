@@ -1,5 +1,5 @@
 import DataDisplay from './components/data';
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import {HashRouter as Router,Routes,Route} from 'react-router-dom';
 import Autocomplete from './components/autocomplete';
 
 

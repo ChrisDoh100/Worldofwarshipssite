@@ -38,6 +38,7 @@
         "core-js": "^3.21.1",
         "cors": "^2.8.5",
         "dotenv": "^10.0.0",
+        "dotenv-webpack": "^7.1.0",
         "jest": "^27.5.1",
         "nodemon": "^2.0.15",
         "path-browserify": "^1.0.1",

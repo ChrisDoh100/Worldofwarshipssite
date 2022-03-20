@@ -9,11 +9,12 @@ import { Alert } from "bootstrap";
 
 const Autocomplete=()=>{
     let history = useNavigate();
+    //suggestions are whats returned from the worldofwarships api on the initial query of usernames.
     const [suggestions,setSuggestions]=useState([])
 
 
 
-
+    //handling when a username is submitted.
     const handleSubmit=async(username)=>{
         let data =await getPlayerData(username['account_id'])
                         .then(res=>res.data.data[username['account_id']].statistics)
@@ -21,11 +22,13 @@ const Autocomplete=()=>{
         let name = String(username['nickname']);
         history(`/data/${name}`,{state:{data,name}})
     }
+    //handles when a letter is type, a single call for every letter typed.
     const handleEvent=async(event)=>{
         event.preventDefault()
         let account_id =await getPlayerNames(event.target.value)
                                         .then(res=>res.data.data)
                                         .catch(err=>Alert("Apologies, Please Try Again Later!"))
+        //checking if the returned data actually contains any users, if not we don't suggest any.
         if(typeof account_id==="undefined"){
             setTimeout(()=>{
                 setSuggestions([])
@@ -44,7 +47,7 @@ const Autocomplete=()=>{
                     {suggestions && suggestions.map((item,i)=><li key={i} onClick={()=>handleSubmit(item)}>{item['nickname']}</li>)}
                 </ul>
             </div>
-            <p className="toptip"> Top Tip: try not to let your ships HP hit zero, otherwise you'll die!</p>
+            <p className="toptip"> Top Tip: Try not to let your ships HP hit zero, otherwise you'll die!</p>
         </div>
     )
         

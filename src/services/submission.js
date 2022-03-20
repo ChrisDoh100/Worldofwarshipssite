@@ -1,16 +1,17 @@
+//handles all api calls fairlybasic stuff.
 import axios from "axios";
 
-const playerhurl = `https://api.worldofwarships.eu/wows/account/info/?application_id=8f8a6cff45216e56c20a911b91be9186&account_id`;
+const playerhurl = `https://api.worldofwarships.eu/wows/account/info/?application_id=${process.env.API}&account_id`;
 
-const searchurl = `https://api.worldofwarships.eu/wows/account/list/?application_id=8f8a6cff45216e56c20a911b91be9186&search`;
+const searchurl = `https://api.worldofwarships.eu/wows/account/list/?application_id=${process.env.API}&search`;
 
-export const getPlayerNames=(query)=>{
-   const accounts = axios.get(searchurl+"="+`${query}`)
+export const getPlayerNames=async (query)=>{
+   const accounts = await axios.get(searchurl+"="+`${query}`)
    return accounts
 }
 
-export const getPlayerData=(username)=>{
-    const playerdata =axios.get(playerhurl+"="+`${username}`)
+export const getPlayerData=async (username)=>{
+    const playerdata =await axios.get(playerhurl+"="+`${username}`)
     return playerdata
 }
 

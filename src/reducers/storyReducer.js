@@ -1,5 +1,4 @@
-import { createStore } from "redux";
-
+//Basic reducer to handle state changes when they're imported from the database.
 const InitialState = {
     1:"Initial Story"
 }
