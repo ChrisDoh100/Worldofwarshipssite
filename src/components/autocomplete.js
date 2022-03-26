@@ -25,6 +25,7 @@ const Autocomplete=()=>{
     //handles when a letter is type, a single call for every letter typed.
     const handleEvent=async(event)=>{
         event.preventDefault()
+        console.log(typeof(event.target.value))
         let account_id =await getPlayerNames(event.target.value)
                                         .then(res=>res.data.data)
                                         .catch(err=>Alert("Apologies, Please Try Again Later!"))
