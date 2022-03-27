@@ -1,19 +1,18 @@
-import DataDisplay from './components/data';
-import {HashRouter as Router,Routes,Route} from 'react-router-dom';
-import Autocomplete from './components/autocomplete';
+import DataDisplay from './components/DataPage';
+import { HashRouter as Router,Routes,Route } from 'react-router-dom';
+import LandingPage from './components/LandingPage';
 
 
 
-const App = ()=>{
-    
+const App = () => {
     return(
         <Router>
             <Routes>
                 <Route path='/data/:name' element={<DataDisplay />}/>
-                <Route path='/' element={<Autocomplete/>}/>
+                <Route path='/' element={<LandingPage/>}/>
             </Routes>
 
         </Router>
-    )}
+    );};
 
-export default App
+export default App;
