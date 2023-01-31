@@ -1,4 +1,4 @@
-//handles all api calls fairlybasic stuff.
+//handles all api calls getting player information.
 import axios from 'axios';
 
 export const getPlayerNames=async (query) => {

@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { DataFilter, DataAligner } from '../HelperFiles/Datafilter';
 import './DataPage.css';
 import Header from './Header';
+import { Table } from 'react-bootstrap';
 
 const DataDisplay= () => {
     //creating states for all relevent data to display.
@@ -16,6 +17,7 @@ const DataDisplay= () => {
     const [storytitle,setStorytitle] = useState(' ');
     const [storycontent,setStorycontent] = useState(' ');
     const [truepadding,setTruePadding] = useState(220);
+    const [first,setFirstValue] = useState(null);
     useEffect(async () => {
         //Pulling story from database on page load and setting the title and content
         try {
@@ -46,25 +48,65 @@ const DataDisplay= () => {
         setTitle(somevalue+':');
         setTitlevalue(FilteredData[somevalue]);
     };
+    const Printvalue=(first)=>{
+        console.log(first)
+    }
+    const SaveUserData=(UserData)=>{
+        Object.entries(UserData).map((stat)=>{
+            console.log(stat[0],stat[1])
+        })
+    }
     return(
         <>
             <Header/>
             <div className="nameanimation">
                 <h1 className="name">{name}</h1>
             </div>
-            <div className="leftmenu" id="sidenav">
-                <div id="leftmenuinner" className="leftmenuinner" style={{ 'paddingTop':truepadding+'px' }}>
-                    <div className="leftmenuinnerinner">
-                        <h2>Statistics:</h2>
-                        {Object.keys(FilteredData).map(value => <p className="left" tabIndex={'1'} onClick={() => Clicked(value)} key={value} >{value}</p>)}
-                    </div>
-                </div>
-            </div>
-            <div className="playerdata">
-                <h1 className="titlecontent">{title}&nbsp;&nbsp;{titlevalue}</h1>
-                <h3 className="storytitle">{storytitle}</h3>
-                <p className="pcontent">{storycontent}</p>
-            </div>
+            <Table striped bordered hover variant="dark">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Statistics
+                        </th>
+                        <th colSpan={2}>
+                            Value:
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Object.entries(FilteredData).map((key,value) => {
+                      return(
+                        <tr>
+                            <td>
+                                {value}
+                            </td>
+                            <td>
+                                {key[0]}
+                            </td>
+                            <td>
+                                {key[1]}
+                            </td>
+                            <td>
+                                <button onClick={()=>Printvalue(key)}>
+                                    Click to Save
+                                </button>
+                            </td>
+                        </tr>
+                    )})}
+                    <tr>
+                        <td colSpan={4}>
+                            <button onClick={()=>SaveUserData(FilteredData)}>
+                                Save All Data
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </Table>
+
+            
         </>
     );
 };
