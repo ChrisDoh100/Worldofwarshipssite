@@ -1,17 +1,22 @@
 
-
 .containerauto{
-    background-image: url('../Georgia.jpg');
+    position: fixed;
+    background: url('../backgroundimagepossible.jpg');
+    background-position: center center;
+    background-size:cover;
+    background-repeat: no-repeat;
     backdrop-filter: blur(8px); 
-    height:100vh;
+    height: 100%;
+    overflow: auto;
     width: 100%;
-
 }
 .title{
     color: white;
     position: relative;
+    text-size-adjust: 50%;
     width: 100%;
     margin-bottom: 0%;
+    top:30%;
     box-sizing: border-box;
     text-align: center;
     font-weight: bolder;
@@ -23,6 +28,7 @@
     position: relative;
     margin: 5% auto 0 auto;
     width: 50%;
+    top:30%;
     border: grey 1px solid;
     box-shadow: 0 0 0 1px rgba(0,0,0,.1),0 2px 4px 1px rgba(0,0,0,.18);
     backdrop-filter: blur(4px);
@@ -59,6 +65,8 @@
     content:"";
 }
 .toptip{
+    position: relative;
+    top:30%;
     padding: 30px;
     font-size: 1em;
     font-weight: bold;

@@ -1,0 +1,45 @@
+
+.loginpagecontainer{
+    position: fixed;
+    background: url('../worldofwarshipsbackgroundimage.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(50px); 
+    opacity: 50%;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    text-align: center;
+}
+.username{
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    padding-bottom: 1%;
+    
+
+}
+.username input:not([type]){
+    position: relative;
+    top:95%;
+    border: black 2px solid;
+    box-shadow: 0 0 0 2px rgba(0,0,0,.1),0 2px 4px 1px rgba(0,0,0,.20);
+    backdrop-filter: blur(4px);
+}
+.password{
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    height: 5%;
+    
+}
+.password input:not([type]){
+    border:black 2px solid;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1),0 2px 4px 1px rgba(0,0,0,.18);
+    backdrop-filter: blur(4px);
+}
+ button{
+    position: relative;
+}

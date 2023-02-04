@@ -38,9 +38,10 @@ const LandingPage=() => {
         }
     };
     return(
+        <>
         <div className="containerauto">
             <Header/>
-            <h1 className="title">World of Warships Stats</h1>
+            <h1 className="title"  styles={"font-size:8vw;"}>World of Warships Stats</h1>
             <div className="autocomplete">
                 <input type='text/css' placeholder="Username...." onChange={(event) => handleEvent(event)} ></input>
                 <ul>
@@ -49,6 +50,7 @@ const LandingPage=() => {
             </div>
             <p className="toptip"> Top Tip: Try not to let your ships HP hit zero, otherwise you&apos;ll die!</p>
         </div>
+        </>
     );
 };
 
