@@ -19,7 +19,7 @@ const LoginPage = ()=>{
     }
     return (
         <>
-        <Header onLoginPage={TextTrackCueList}></Header>
+        <Header DisplayLoginPage={false} DisplayRegisterPage={true}></Header>
         <div className="loginpagecontainer">
             <div className="username">
                 <input placeholder="Username:" onChange={()=>handleUserChange(event)}></input>

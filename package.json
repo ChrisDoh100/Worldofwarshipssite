@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "firstwebapplication",
     "scripts": {
-        "start": "webpack serve --mode=development && react-dotenv",
+        "start": "webpack  serve --mode=development && react-dotenv",
         "build": "webpack --mode=development && react-dotenv",
         "dev": "webpack --watch --mode=development && react-dotenv",
         "test": "jest --setupFiles dotenv/config",

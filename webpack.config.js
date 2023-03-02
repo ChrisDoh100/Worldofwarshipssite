@@ -9,7 +9,7 @@ const config = {
         filename:'main.js'
     },
     devServer:{
-        static:path.resolve(__dirname,'build/'),
+        static:path.resolve(__dirname,'build'),
         compress:true,
         port:3000,
     },

@@ -40,7 +40,7 @@ const LandingPage=() => {
     return(
         <>
         <div className="containerauto">
-            <Header/>
+            <Header DisplayLogin={true} DisplayRegisterPage={true}/>
             <h1 className="title"  styles={"font-size:8vw;"}>World of Warships Stats</h1>
             <div className="autocomplete">
                 <input type='text/css' placeholder="Username...." onChange={(event) => handleEvent(event)} ></input>
