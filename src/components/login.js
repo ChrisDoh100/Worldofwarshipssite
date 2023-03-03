@@ -21,13 +21,16 @@ const LoginPage = ()=>{
         <>
         <Header DisplayLoginPage={false} DisplayRegisterPage={true}></Header>
         <div className="loginpagecontainer">
-            <div className="username">
-                <input placeholder="Username:" onChange={()=>handleUserChange(event)}></input>
-            </div>
-            <div className="password">
-                <input placeholder = "Password:"onChange={()=>handlepasswordChange(event)}></input>
-            </div>
-            <button onClick={()=>checkcreditentials({username,password})}>Submit!</button>
+                <div className="loginbox">
+                    <h1 className="TitleLogin">Login:</h1>
+                    <p>Username:</p>
+                    <input placeholder="Username:" onChange={()=>handleUserChange(event)}></input>
+                    <p>Password:</p>
+                    <input placeholder = "Password:"onChange={()=>handlepasswordChange(event)}></input>
+                    <div className="button">
+                        <button onClick={()=>checkcreditentials({username,password})}>Submit!</button>
+                    </div>
+                </div>
         </div>
 
         </>

@@ -1,0 +1,48 @@
+.registerpagecontainer{
+    position: fixed;
+    background:  linear-gradient(
+        rgba(255, 255, 255, 0.4), 
+        rgba(255, 255, 255, 0.4)), 
+        url('../worldofwarshipsbackgroundimage.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(50px); 
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    text-align: center;
+}
+.registerbox{
+    justify-content: center;
+    align-content: center;
+    width: 400px;
+    height:600px;
+    margin: auto auto;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transform: translate(-45%, -45%);
+}
+.usercreation{
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+}
+
+p{
+    font-size:x-large;
+    color: white;
+    opacity: 100%;
+    text-shadow: 4px 4px 10px black;
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+    font-size: 1.5em;
+}
+input:focus{
+    outline: none !important;
+}
+.button{
+    margin-top: 5%;
+    top: 15%;
+}
