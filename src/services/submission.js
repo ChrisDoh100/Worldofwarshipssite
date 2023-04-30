@@ -5,6 +5,7 @@ export const getPlayerNames=async (query) => {
     try{
         const searchurl = `https://api.worldofwarships.eu/wows/account/list/?application_id=${process.env.API}&search`;
         const accounts = await axios.get(searchurl+'='+`${query}`);
+        console.log(accounts)
         return accounts;
     }catch(error){
         console.log('Error');

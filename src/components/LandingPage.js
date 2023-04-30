@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './Header';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -7,11 +7,11 @@ import { getPlayerNames , getPlayerData } from '../services/submission';
 import { Alert } from 'bootstrap';
 
 
-const LandingPage=() => {
+const LandingPage=(props) => {
     let history = useNavigate();
     //suggestions are whats returned from the worldofwarships api on the initial query of usernames.
     const [suggestions,setSuggestions]=useState([]);
-
+    const [user,setUser] = useState(null);
 
 
     //handling when a username is submitted.
@@ -40,7 +40,7 @@ const LandingPage=() => {
     return(
         <>
         <div className="containerauto">
-            <Header DisplayLogin={true} DisplayRegisterPage={true}/>
+            <Header DisplayLogin={true} DisplayRegisterPage={true} username = {user}/>
             <h1 className="title"  styles={"font-size:8vw;"}>World of Warships Stats</h1>
             <div className="autocomplete">
                 <input type='text/css' placeholder="Username...." onChange={(event) => handleEvent(event)} ></input>
