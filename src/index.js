@@ -3,16 +3,26 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-//import storyReducer from './reducers/storyReducer';
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
 
-//const Store = createStore(storyReducer);
+import DisplayRegisterPageReducer from './reducers/displayregisterpagereducer';
+import displayloginReducer from './reducers/displayloginreducer';
+import loggedinReducer from './reducers/loggedinReducer';
+import displayusername from './reducers/displayusername';
+
+
+const store = configureStore({
+    reducer:{
+        DisplayRegisterPage: DisplayRegisterPageReducer,
+        DisplayLogin:displayloginReducer,
+        LoggedIn:loggedinReducer,
+        DisplayUsername:displayusername
+    }
+})
 
 ReactDOM.render(
-    //<Provider store={Store}>
+    <Provider store={store}>
         <App />,
-    //</Provider>,
+    </Provider>,
     document.getElementById('root'));

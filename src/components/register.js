@@ -1,10 +1,11 @@
 import React from "react";
 import Header from "./Header";
 import './register.css';
-import  createUser  from '../services/userService'
+import  {createUser}  from '../services/userService'
 import { useState } from "react";
+import { useContext } from "react";
 
-const RegisterPage=(props)=>{
+const RegisterPage=()=>{
     const [username,setUserName] = useState('');
     const [hashedpassword,setPassword] = useState('');
     const [notifications,setNotifications] = useState('');
@@ -23,7 +24,7 @@ const RegisterPage=(props)=>{
             console.log("hashedpassword",hashedpassword)
             const apply = await createUser({username,hashedpassword})
                                 .catch(error=>{
-                                    setNotifications('Invalid Username or Password!')
+                                    setNotifications(error)
                                     setTimeout(()=>{
                                         setNotifications('')
                                     },2000)
@@ -31,14 +32,13 @@ const RegisterPage=(props)=>{
             
         }catch(error){
             console.log(error)
-            //setNotifications(error)
         }
         setPassword('');
         setUserName('')
     }
     return(
         <>
-        <Header DisplayLogin={true} DisplayRegisterPage={props.DisplayRegisterPage}></Header>
+        <Header DisplayLogin={DisplayLogin} DisplayRegisterPage={DisplayRegisterPage} loggedin={loggedin}></Header>
             <div className="registerpagecontainer">
                 <div className="registerbox">
                     <h1 className="registertitle">Register:</h1>
