@@ -6,10 +6,10 @@ const LoggedInSlice = createSlice({
     initialState:{loggedIn:false},
     reducers:{
         displayloggedinfalsey: state=>{
-            state.Displayloggedin=false;
+            state.loggedIn=false;
         },
         displayloggedintruey :state =>{
-            state.Displayloggedin=true;
+            state.loggedIn=true;
         }
     }
 })

@@ -16,6 +16,17 @@
     position: absolute;
     padding: 5px;
 }
+a.Username{
+    height:60px;
+    width:auto;
+    right: auto;
+    position: relative;
+    padding: 15px;
+    float: right;
+    height: 30px;
+    text-decoration: none ;
+    color: whitesmoke;
+}
 a.Home{
     height:60px;
     width:auto;
@@ -65,6 +76,10 @@ a.Register{
     color: whitesmoke;
 }
 .header.header.login:hover{
+    text-decoration: none;
+    color: whitesmoke;
+}
+.header.header.Logout:hover{
     text-decoration: none;
     color: whitesmoke;
 }

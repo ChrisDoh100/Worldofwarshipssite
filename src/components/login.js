@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { displaylogintruey,displayloginfalsey } from "../reducers/displayloginreducer";
 import { displayregisterfalsey,displayregistertruey } from "../reducers/displayregisterpagereducer";
 import { updateUsername } from "../reducers/displayusername";
+import { displayloggedintruey } from "../reducers/loggedinReducer";
 
 const LoginPage = ()=>{
     const navigate = useNavigate();
@@ -32,9 +33,14 @@ const LoginPage = ()=>{
                                     },2000)
 
                                 },[])
+        console.log("attempt",attempt.token)
+        localStorage.setItem("user",attempt.username)
+        localStorage.setItem("token",attempt.token)
+        dispatch(displayloggedintruey())
         dispatch(displayloginfalsey())
         dispatch(displayregisterfalsey())
         dispatch(updateUsername(attempt.username))
+        navigate('/')
 
     }
     const handleUserChange=(event)=>{
