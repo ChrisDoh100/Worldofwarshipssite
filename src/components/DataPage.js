@@ -16,8 +16,7 @@ const DataDisplay= () => {
             <div className="nameanimation">
                 <h1 className="name">{name}</h1>
             </div>
-            <TableDisplay TableData={FilteredData}/>
-            
+            <TableDisplay TableData={FilteredData} />
         </>
     );
 };

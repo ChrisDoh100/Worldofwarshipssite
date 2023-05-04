@@ -16,6 +16,7 @@ const RegisterPage=()=>{
     const dispatch = useDispatch();
     const [username,setUserName] = useState('');
     const [hashedpassword,setPassword] = useState('');
+    const [secpassword,setSecPassword]=useState('')
     const [notifications,setNotifications] = useState('');
 
     const handleUserChange = (event)=>{
@@ -26,19 +27,22 @@ const RegisterPage=()=>{
         setPassword(event)
         console.log("password",hashedpassword)
     }
+    const handlesecPassChange = (event)=>{
+        setSecPassword(event)
+        console.log("secpass",secpassword)
+    }
     const RegisterUser = async ()=>{
-        try{
-            console.log("username",username)
-            console.log("hashedpassword",hashedpassword)
-            const apply = await createUser({username,hashedpassword})
-                                .catch(error=>{
-                                    setNotifications(error)
-                                    setTimeout(()=>{
-                                        setNotifications('')
-                                    },2000)
-                                },[])
-            console.log(apply)
-            if(apply){
+        if(secpassword!==hashedpassword || hashedpassword.length<9){
+            setNotifications('Both passwords need to match and be greater than 8 characters')
+            setTimeout(()=>{
+                setNotifications('')
+            },2000)
+        }else{
+            try{
+                console.log("username",username)
+                console.log("hashedpassword",hashedpassword)
+                console.log("secpassword",secpassword)
+                const apply = await createUser({username,hashedpassword})
                 setNotifications("Registration Successful! Redirecting to main page...")
                 setTimeout(()=>{
                     setNotifications('')
@@ -48,20 +52,21 @@ const RegisterPage=()=>{
                     setTimeout(()=>{
                         setNotifications('')
                     },1000)
-                })
+                },[])
                 dispatch(displayloggedintruey())
                 dispatch(displayloginfalsey())
                 dispatch(displayregisterfalsey())
                 dispatch(updateUsername(registeredlogin.username))
                 navigate('/')
+                
+            }catch(error){
+                setNotifications('Invalid Username')
+                setTimeout(()=>{
+                    setNotifications('')
+                    window.location.reload();
+                },2000)
             }
-            
-        }catch(error){
-            console.log(error)
         }
-        setPassword('');
-        setUserName('');
-        //history('/');
     }
     return(
         <>
@@ -73,9 +78,9 @@ const RegisterPage=()=>{
                         <p className="usertext">Username:</p>
                         <input placeholder="Username:" onChange={({target})=>handleUserChange(target.value)}></input>
                         <p>Password:</p>
-                        <input placeholder="Password:" onChange={({target})=>handlePassChange(target.value)}></input>
+                        <input placeholder="Password:" type="password" onChange={({target})=>handlePassChange(target.value)}></input>
                         <p>Password(Again):</p>
-                        <input placeholder="Password:"></input>
+                        <input placeholder="Password:" type="password" onChange={({target})=>handlesecPassChange(target.value)}></input>
                         <div className="button">
                             <button onClick={RegisterUser}>Submit</button>
                         </div>

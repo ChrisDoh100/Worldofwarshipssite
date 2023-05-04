@@ -72,7 +72,7 @@ const LoginPage = ()=>{
                     <input placeholder="Username:" onChange={({target})=>handleUserChange(target.value)}></input>
 
                     <p>Password:</p>
-                    <input placeholder = "Password:"onChange={({target})=>handlepasswordChange(target.value)}></input>
+                    <input placeholder = "Password:" type="password" onChange={({target})=>handlepasswordChange(target.value)}></input>
 
                     <div className="button">
 
