@@ -1,24 +1,25 @@
 import { Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import React from "react";
-import './DataTable.css'
+import './DataTable.css';
+import { SaveUserData } from "../services/dataService";
 
-
-
-const TableDisplay = ({TableData})=>{
-    Object.entries(TableData).map((state)=>{
-
-    })
+const TableDisplay = ({TableData,Currentuser})=>{
     let logged = useSelector(state=>state.LoggedIn.loggedIn)
-    const Printvalue = (value)=>{
-        console.log(value[0],value[1]);
+    let Displayname = useSelector(state=>state.DisplayUsername.name);
+    console.log("Currentname",Currentuser);
+    console.log("Displayusername",Displayname);
+    //this will save the user data at this point in time for that specific time.
+    const Savevalue = async(value)=>{
+        const Saved= await SaveUserData(value);
+        console.log({Saved});
+
     }
-    const SaveUserData = (TableData)=>{
-        {Object.entries(TableData).map((stat)=>{
-            console.log(stat[0],stat[1]);
-        })}
+    //this will be used to get individual stat data based on the type of graphed selected.
+    const GetGraphData = ()=>{
+
     }
-    let length = logged?1:4;
+    let length = (logged && (Displayname==Currentuser))?1:4;
     return (
         <>
         <Table striped bordered hover variant="dark" className="table" style={{marginBottom: 0+'px'}} >
@@ -33,8 +34,8 @@ const TableDisplay = ({TableData})=>{
                         <th colSpan={length}>
                             Value:
                         </th>
-                        {logged?<th>Save:</th>:null}
-                        {logged?<th>Graph:</th>:null}
+                        {(logged && (Displayname==Currentuser))?<th>Save:</th>:null}
+                        {(logged && (Displayname==Currentuser))?<th>Graph:</th>:null}
                     </tr>
                 </thead>
                 <tbody>
@@ -52,14 +53,9 @@ const TableDisplay = ({TableData})=>{
                                 <td>
                                     {key[1]}
                                 </td>
-                                <td>
-                                    {logged?<button onClick={()=>Printvalue(key)}>
-                                        Click to Save
-                                    </button>:null} 
-                                </td>
-                                <td >
-                                        {logged?<button type="button" data-bs-target={`#${identity}`} data-bs-toggle="collapse" aria-controls={`${identity}`} aria-expanded="false">Graph Data</button>:null}
-                                </td>
+                                {(logged && (Displayname==Currentuser))?<td><button className="btn btn-dark" onClick={()=>Savevalue(key)}>Click to Save</button></td>:null} 
+                                {(logged && (Displayname==Currentuser))?<td><button className="btn btn-dark" type="button" data-bs-target={`#${identity}`} data-bs-toggle="collapse" aria-controls={`${identity}`} aria-expanded="false">Graph Data</button></td>:null}
+                                
                             </tr>
                             <tr className="collapse out" id = {`${identity}`} colSpan="6">
                                 <td colSpan={6}>
