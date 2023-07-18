@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import React from "react";
 import './DataTable.css';
 import { SaveUserData } from "../services/dataService";
+import DisplayChart from "./ChartDisplay";
 
 const TableDisplay = ({TableData,Currentuser})=>{
     let logged = useSelector(state=>state.LoggedIn.loggedIn)
@@ -16,9 +17,6 @@ const TableDisplay = ({TableData,Currentuser})=>{
 
     }
     //this will be used to get individual stat data based on the type of graphed selected.
-    const GetGraphData = ()=>{
-
-    }
     let length = (logged && (Displayname==Currentuser))?1:4;
     return (
         <>
@@ -59,7 +57,8 @@ const TableDisplay = ({TableData,Currentuser})=>{
                             </tr>
                             <tr className="collapse out" id = {`${identity}`} colSpan="6">
                                 <td colSpan={6}>
-                                        gimper
+                                        
+                                        <DisplayChart data={[Currentuser,key[0]]}/>
                                 </td>
                             </tr>
                         </>
