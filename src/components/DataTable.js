@@ -57,8 +57,7 @@ const TableDisplay = ({TableData,Currentuser})=>{
                             </tr>
                             <tr className="collapse out" id = {`${identity}`} colSpan="6">
                                 <td colSpan={6}>
-                                        
-                                        <DisplayChart data={[Currentuser,key[0]]}/>
+                                    {(logged && (Displayname==Currentuser))?<DisplayChart data={[Currentuser,key[0]]}/>:null}
                                 </td>
                             </tr>
                         </>
