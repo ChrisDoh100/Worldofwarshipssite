@@ -12,10 +12,8 @@ export const SaveUserData = async (datapoint)=>{
 }
 
 export const GetUserData = async(data)=>{
-    console.log("dddata",data);
-    const currentuser = data[0];
-    const currentvalue = data[1];
-    const response = await axios.post(`${baseUrl}/api/infos/userdata`,{username:data[0],value:data[1]},{ headers: {"Authorization" : `Bearer ${localStorage.token}`}});
+    console.log({data});
+    const response = await axios.post(`${baseUrl}/api/infos/userdata`,{user:data.Currentuser,value:data.stat},{ headers: {"Authorization" : `Bearer ${localStorage.token}`}});
     console.log({response});
     return response.data;
 }

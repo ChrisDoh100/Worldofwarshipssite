@@ -23,8 +23,8 @@ const TableDisplay = ({TableData,Currentuser})=>{
 
     }
     //now we populate the map with the given possible data values in the backend when the graph button is clicked.
-    const  getData = async(value)=>{
-        let res = await GetUserData({Currentuser,value});
+    const  getData = async(stat)=>{
+        let res = await GetUserData({Currentuser,stat});
         console.log({res})
         setgraphlabels(res.map(x=>x.createdAt))
         setgraphData(res.map(x=>x.value))
@@ -66,7 +66,7 @@ const TableDisplay = ({TableData,Currentuser})=>{
                                     {key[1]}
                                 </td>
                                 {(logged && (Displayname==Currentuser))?<td><button className="btn btn-dark" onClick={()=>Savevalue(key)}>Click to Save</button></td>:null} 
-                                {(logged && (Displayname==Currentuser))?<td><button className="btn btn-dark" type="button" data-bs-target={`#${identity}`} onClick={()=>getData(identity)} data-bs-toggle="collapse" aria-controls={`${identity}`} aria-expanded="false">Graph Data</button></td>:null}
+                                {(logged && (Displayname==Currentuser))?<td><button className="btn btn-dark" type="button" data-bs-target={`#${identity}`} onClick={()=>getData(key[0])} data-bs-toggle="collapse" aria-controls={`${identity}`} aria-expanded="false">Graph Data</button></td>:null}
                                 
                             </tr>
                             <tr className="collapse out" id = {`${identity}`} colSpan="6">
