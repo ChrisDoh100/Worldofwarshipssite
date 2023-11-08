@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const baseUrl = 'http://localhost:3001';
+const baseUrl = 'http://localhost:1836';
 
 
 export const SaveUserData = async (datapoint)=>{
